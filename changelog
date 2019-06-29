@@ -1,0 +1,5 @@
+0.04 added a notes directory, added a todo file, clarified the README
+0.03 have to reload the playlist after a download to generate new ids
+0.02 convert non-isprint chars to space in playlist 
+     timeout callbacks in UI to show a status line when doing USB calls
+0.01 initial alpha quality release

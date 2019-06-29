@@ -1,0 +1,43 @@
+Date: Sat, 6 Apr 2002 00:31:55 -0500
+From: Stefan Adams 
+To: kal@users.sourceforge.net
+
+Kal,
+
+Great product you made here!  I NEVER would have thought that an Uproar
+product would exist for Linux!  The software provided by Sprint is the
+worst software I have ever seen.  Simply fantastic!
+
+I just thought I would give you some feedback, specifically on the
+Makefile.  I had to modify the INCLUDES and the LDFLAGS as below in order
+for the usb.h include file and libusb.so library files to be picked up by
+gcc.
+
+Now here's where my REAL trouble came in!  When I initially ran 'make'
+as specified by the README and after I made the INCLUDES/LDFLAGS
+modifications, sulu compiled just fine.  When I went to execute the
+progam, it would always give a segmentation fault.  When stepping thru
+the script I found it to dump when probing the devices in the
+Uproar_Initialize routine.  It took about 3 hours to find the solution 
+to this tiny problem.  I had to step thru the source code and trim out
+all GTK code as well as read up on the libusb code.  I then found that I
+needed the following gcc parameters: -Wl,--rpath -Wl,${LIBUSB}/lib
+Once I did that there was no more dumpage and the program worked
+perfectly!  I couldn't find any libusb documentation; do you perhaps know
+what rpath is and why it's required to run the program but not compile it?
+
+Anyway, just thought you might like to document that in your package and
+save the next person some possible trouble.
+
+If you'd like any version numbers from me for a better bug report, let me
+know.
+
+LIBUSB      = /opt/libusb
+INCLUDES    = `${LIBUSB}/bin/libusb-config --cflags` `gtk-config --cflags`
+LDFLAGS     = `${LIBUSB}/bin/libusb-config --libs`
+LIBRARIES   = -Wl,--rpath -Wl,${LIBUSB}/lib `gtk-config --libs`
+
+Thanks again!
+
+Stefan @ Adams . name
+

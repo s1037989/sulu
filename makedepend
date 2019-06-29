@@ -1,0 +1,5 @@
+main.o: main.c main.h system_pane.h device_pane.h lib_uproar.h
+lib_uproar.o: lib_uproar.c main.h lib_uproar.h
+system_pane.o: system_pane.c main.h system_pane.h device_pane.h \
+  lib_uproar.h
+device_pane.o: device_pane.c main.h device_pane.h lib_uproar.h

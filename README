@@ -1,0 +1,38 @@
+
+============================================================================
+
+    USE THIS SOFTWARE AT YOUR OWN RISK.  I TAKE NO RESPONSIBILITY
+    FOR ANY DAMAGE THAT MAY RESULT FROM USING THIS SOFTWARE.
+
+============================================================================
+
+Samsung Uproar Linux Utility (sulu)
+
+Sulu is a graphical utility for transferring mp3's between
+your Samsung Uproar and your Linux computer.  It uses the 
+GTK+ toolkit for the user interface and libusb.  Sulu is
+licensed under the GPL (see the file COPYING).
+
+You will need a kernel with USB support properly configured.  
+I used a stock RedHat 7.2 install.  You can check whether USB 
+is properly configured for your hardware by entering:
+
+grep Vendor /proc/bus/usb/devices
+
+You should see a line with "Vendor=04e8 ProdID=6600".
+
+Once USB is properly setup you will have to install the 
+shared library and the devel libraries for libusb.
+(http://libusb.sourceforge.net/download.html).
+
+To compile sulu, just type "make".  The executable is named sulu.
+You need to run as root.
+
+ 
+Author: 
+kal@users.sourceforge.net
+
+Credits: 
+Big thanks goes to Kasima Tharnpipitchai for his work on the 
+protocol and Johannes Erdfelt for libusb.  
+
